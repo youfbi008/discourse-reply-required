@@ -21,6 +21,9 @@ function replaceActionRequired(text) {
       match = match.replace(/["']/g, "");
                 return '"http://bbscdn.dmgeek.com' + match + '!vrimg.jpg"';
             })));
+            
+  text = text.replace(/    /ig, "<span class='blank'>　</span>");
+  text = text.replace(/\[空格\]/ig, "<span class='blank'>　</span>");
   return text;
 }
 
