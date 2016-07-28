@@ -16,6 +16,11 @@ function replaceActionRequired(text) {
   text = text || "";
   while (text !== (text = text.replace(/\[回复可见\]((?:(?!\[回复可见\]|\[\/回复可见\])[\S\s])*)\[\/回复可见\]/ig, insertReplyRequired)));
   while (text !== (text = text.replace(/\[登录可见\]((?:(?!\[登录可见\]|\[\/登录可见\])[\S\s])*)\[\/登录可见\]/ig, insertLoginRequired)));
+  while (text !== (text = text.replace(/(\"\/uploads\/default\/original\/\S+.(jpg|jpeg|png)\")/ig, function (match) {
+
+      match = match.replace(/["']/g, "");
+                return '"http://bbscdn.dmgeek.com' + match + '!vrimg.jpg"';
+            })));
   return text;
 }
 
